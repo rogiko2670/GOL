@@ -36,6 +36,10 @@ public class GameOfLifeMain extends Application{
 		 Button start = new Button("Start");
 		 Button stop = new Button("Stop");
 		 
+		 init.setOnAction(event ->{
+			 game.gameInit();
+		 });
+		 
 		 
 		 root.getChildren().addAll(canvas, (new HBox(10, init, nextStep, start, stop)));
 		 return root;
