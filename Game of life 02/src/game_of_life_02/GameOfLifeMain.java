@@ -1,5 +1,8 @@
 package game_of_life_02;
 
+import java.util.concurrent.TimeUnit;
+
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,17 +32,30 @@ public class GameOfLifeMain extends Application{
 		 // das Spiel initialisieren
 		 game.gameInit();
 		 
-		 
 		 // Steuerelemente
 		 Button init = new Button("Reset");
 		 Button nextStep = new Button("Step");
 		 Button start = new Button("Start");
 		 Button stop = new Button("Stop");
 		 
+		 // Fuer die animation
+		 AnimationTimer timer = new AnimationTimer() {		 
+			long lastUpdate = 0;
+			
+			@Override
+			public void handle(long now) {
+				if(now - lastUpdate >= TimeUnit.MILLISECONDS.toNanos(500));
+				lastUpdate = now;
+				game.tig();
+			}			 
+		 };
+		 
 		 init.setOnAction(event ->{
 			 game.gameInit();
 		 });
-		 
+		 nextStep.setOnAction(event -> {
+			 game.tig();
+		 });
 		 
 		 root.getChildren().addAll(canvas, (new HBox(10, init, nextStep, start, stop)));
 		 return root;
