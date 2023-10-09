@@ -53,4 +53,9 @@ public class Game {
 			}
 		}
 	}
+	
+	// tig -->
+	public void tig() {
+		
+	}
 }
