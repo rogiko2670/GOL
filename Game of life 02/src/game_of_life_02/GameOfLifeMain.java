@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -28,7 +30,14 @@ public class GameOfLifeMain extends Application{
 		 game.gameInit();
 		 
 		 
-		 root.getChildren().add(canvas);
+		 // Steuerelemente
+		 Button init = new Button("Reset");
+		 Button nextStep = new Button("Step");
+		 Button start = new Button("Start");
+		 Button stop = new Button("Stop");
+		 
+		 
+		 root.getChildren().addAll(canvas, (new HBox(10, init, nextStep, start, stop)));
 		 return root;
 	}
 
