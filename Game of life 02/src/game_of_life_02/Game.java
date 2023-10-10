@@ -56,7 +56,21 @@ public class Game {
 	
 	// getNaighbours -->
 	private int getNaighbours(int row, int column) {
-		return 3;
+		int sum = 0;
+		// Die Raender berücksichtigen und den Bereich um die Zelle vestlegen
+		int startRow = row == 0 ? 0 : -1;
+		int endRow = row == grid.length - 1 ? 0 : 1;
+		int startColumn = column == 0 ? 0 : -1;
+		int endColumn = column == grid[0].length -1 ? 0 : 1;
+		 
+		// Diesen Bereich untersuchen und lebende Zellen summieren
+		for(int i = startRow; i <= endRow; i++) {
+			for(int j = startColumn; j <= endColumn; j++) {
+				sum += grid[i + row][j + column];
+			}
+		}
+		
+		return sum -= grid[row][column];
 	}
 	
 	// tig -->
