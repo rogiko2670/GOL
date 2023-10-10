@@ -69,7 +69,7 @@ public class Game {
 				sum += grid[i + row][j + column];
 			}
 		}
-		
+		// Der Zustand der Ausgangs Zelle darf nicht berücksichtigt werden
 		return sum -= grid[row][column];
 	}
 	
