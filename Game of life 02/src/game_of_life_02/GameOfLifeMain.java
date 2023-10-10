@@ -50,11 +50,17 @@ public class GameOfLifeMain extends Application{
 			}			 
 		 };
 		 
-		 init.setOnAction(event ->{
+		 init.setOnAction(event -> {
 			 game.gameInit();
 		 });
 		 nextStep.setOnAction(event -> {
 			 game.tig();
+		 });
+		 start.setOnAction(event -> {
+			 timer.start();
+		 });
+		 stop.setOnAction(evemt -> {
+			 timer.stop();
 		 });
 		 
 		 root.getChildren().addAll(canvas, (new HBox(10, init, nextStep, start, stop)));
