@@ -54,8 +54,30 @@ public class Game {
 		}
 	}
 	
+	// getNaighbours -->
+	private int getNaighbours(int row, int column) {
+		return 3;
+	}
+	
 	// tig -->
 	public void tig() {
-		
+		// Der nächste Zyklus mus gespeichert werden
+		int nextGrid[][] = new int[rows][columns];
+		// Über das alte grid gehen und die neuen Zustände einer Zelle
+		// auf Grund der Zustaende ihrer Nachbarn festlegen
+		for(int row = 0; row < rows; row++) {
+			for(int column = 0; column < columns; column++) {
+				int sum = getNaighbours(row, column);
+				if(sum == 3) {
+					nextGrid[row][column] = 1;
+				} else if (sum < 2 || sum > 3) {
+					nextGrid[row][column] = 0;
+				} else {
+					nextGrid[row][column] = grid [row][column];
+				}
+			}
+		}
+		grid = nextGrid;
+		draw();
 	}
 }
