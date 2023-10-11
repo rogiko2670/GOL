@@ -44,9 +44,10 @@ public class GameOfLifeMain extends Application{
 			
 			@Override
 			public void handle(long now) {
-				if(now - lastUpdate >= TimeUnit.MILLISECONDS.toNanos(500));
-				lastUpdate = now;
-				game.tig();
+				if((now - lastUpdate) >= TimeUnit.MILLISECONDS.toNanos(100)) {					
+					game.tig();
+					lastUpdate = now;
+				}
 			}			 
 		 };
 		 
